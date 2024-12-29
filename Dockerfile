@@ -9,4 +9,4 @@ RUN npm run build
 # Étape finale : production-ready artefacts
 FROM alpine:latest AS final-env
 WORKDIR /dist
-COPY --from=build-env /app/dist .
+COPY --from=build-env /app/build/client ./
