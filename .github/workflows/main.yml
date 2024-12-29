@@ -44,7 +44,7 @@ jobs:
               push: true
               tags: ${{ matrix.full-image-name }}:latest
               context: ./${{matrix.path}}
-              file: ./${{matrix.path}}/Dockerfile.prod
+              file: ./${{matrix.path}}/Dockerfile
               cache-from: type=gha
               cache-to: type=gha,mode=max
    deploy:
