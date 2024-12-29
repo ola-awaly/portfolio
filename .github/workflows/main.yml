@@ -16,7 +16,7 @@ jobs:
          matrix:
             include:
                - path: .
-                 full-image-name: ghcr.io/${{ github.repository }}/portfolio
+                 full-image-name: ghcr.io/${{ github.repository }}
 
       steps:
          - name: checkout code
