@@ -60,6 +60,9 @@ jobs:
               ssh-add - <<< "${{ secrets.OVH_PROD_PKEY}}"
               mkdir -p  ~/.ssh
               ssh-keyscan -H ${{ env.SERVER_IP }} >> ~/.ssh/known_hosts
+              # Créer le répertoire sur le serveur si nécessaire
+              ssh ${{ env.SERVER_USER }}@${{ env.SERVER_IP }} "mkdir -p /home/ubuntu/portfolio/"
+               #copier le fichier compose.prod.yml
               scp compose.prod.yml ${{ env.SERVER_USER }}@${{ env.SERVER_IP }}:/home/${{ env.SERVER_USER }}/portfolio/compose.prod.yml
               ssh ${{ env.SERVER_USER }}@${{ env.SERVER_IP }} "
 
