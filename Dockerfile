@@ -11,8 +11,8 @@ RUN npm run build
 # WORKDIR /dist
 # COPY --from=build-env /app/build/client ./
 
-
-
-FROM nginx:latest
-COPY --from=build-env /app/build/client /usr/share/nginx/html
+FROM nginx:alpine AS prod-env
+COPY --from=build-env ./build/client /usr/share/nginx/html
+COPY nginx.conf /etc/nginx/conf.d/default.conf
 EXPOSE 80
+CMD ["nginx", "-g", "daemon off;"]
