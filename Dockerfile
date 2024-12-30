@@ -14,5 +14,5 @@ RUN npm run build
 
 
 FROM nginx:latest
-COPY --from=build-env /app/build/ /usr/share/nginx/html
+COPY --from=build-env /app/build/client /usr/share/nginx/html
 EXPOSE 80
