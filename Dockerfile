@@ -7,6 +7,12 @@ COPY . .
 RUN npm run build
 
 # Étape finale : production-ready artefacts
-FROM alpine:latest AS final-env
-WORKDIR /dist
-COPY --from=build-env /app/build/client ./
+# FROM alpine:latest AS final-env
+# WORKDIR /dist
+# COPY --from=build-env /app/build/client ./
+
+
+
+FROM nginx:latest
+COPY --from=build-env /app/build/ /usr/share/nginx/html
+EXPOSE 80
