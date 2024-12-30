@@ -3,7 +3,7 @@ services:
       image: ghcr.io/ola-awaly/portfolio:latest
 
       ports:
-         - '8080:80'
+         - '8080:8090'
       pull_policy: always
       networks:
          - proxy_portfolio
